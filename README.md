@@ -6,8 +6,8 @@ This tool aims to build up an intelligent tool to help SMB owners make data-driv
 
 
 ## Data Source
-Yelp Open Source Dataset
-### This dataset includes information on reviews, users, businesses, checkin, photos and tips. The dataset is 5.79 GB uncompressed in json format (6 json files, including business.json, check-in.json, photos.json, review.json, tip.json and user.json)
+### Yelp Open Source Dataset
+This dataset includes information on reviews, users, businesses, checkin, photos and tips. The dataset is 5.79 GB uncompressed in json format (6 json files, including business.json, check-in.json, photos.json, review.json, tip.json and user.json)
 ### Income Dataset and Zip code Dataset 
 1. American FactFinder under United States Census Bureau 
 2. Gaslamp Media
