@@ -14,7 +14,7 @@ This dataset includes information on reviews, users, businesses, checkin, photos
 
 
 ## DE Challenges
-### Ingest multiple data sources for joins
+
 ### Real-time streaming on:
 1. NLP analysis, analyze the sentiment score of a user's comments on business, using Stanford CoreNLP wrapper for Apache Spark
-2. Window aggregation counting of recent new user reviews on business
+2. Normalize different dimensions from the data input and to compute an aggregated score in the aspects of Accessibility, Business Rate and Competition
