@@ -1,4 +1,4 @@
-# SMB Location Advisor - A Real-time Intelligent Tool for SMB Location Strategy
+# SMB LocationIQ - A Real-time Intelligent Tool for SMB Location Strategy
 
 ## Business Use Case
 Shopping for the business location is usually the first challenge when SMB owners start their own business. There is huge need for them to quickly target an ideal location that can potentially grow their business without spending money on the consulting service for location strategy.
