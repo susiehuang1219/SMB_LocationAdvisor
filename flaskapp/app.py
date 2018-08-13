@@ -9,23 +9,23 @@ def create_app(test_config=None):
     app.config.from_mapping(
         SECRET_KEY='dev',
     )
-
+    '''
     if test_config is None:
         # load the instance config, if it exists, when not testing
         app.config.from_pyfile('config.py', silent=True)
     else:
         # load the test config if passed in
         app.config.from_mapping(test_config)
-
+    '''
     return app
 
 app = create_app()
 mysql = MySQL()
 # MySQL configurations
-app.config['MYSQL_DATABASE_USER'] = 'test'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'test'
-app.config['MYSQL_DATABASE_DB'] = 'business'
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+app.config['MYSQL_DATABASE_USER'] = '{user}'
+app.config['MYSQL_DATABASE_PASSWORD'] = '{pwd}'
+app.config['MYSQL_DATABASE_DB'] = '{db}'
+app.config['MYSQL_DATABASE_HOST'] = '{ip}'
 mysql.init_app(app)
 
 @app.route('/getLocations', methods=['GET'])
