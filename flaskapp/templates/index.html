@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+<div id="form">
+  <label for="zipcode">Zipcode</label>
+  <input name="zipcode" id="zipcode" required>
+  <label for="category">Category</label>
+  <input name="category" id="category" required>
+  <button id="search">Search</button>
+</div>
+{% endblock %}
+
+{% block map %}
+  <div id="map"></div>
+{% endblock %}
+
+{% block table %}
+<table id="result_table">
+  <thead>
+  <tr>
+     <th>City</th>
+     <th>State</th>
+     <th>Zipcode</th>
+     <th>Category</th>
+     <th>Sentiment</th>
+     <th>Affordability</th>
+     <th>Accessibility</th>
+     <th>Negative Sentiment KW</th>
+  </tr>
+  </thead>
+</table>
+{% endblock %}
+
+{% block script %}
+<script type=text/javascript>
+  $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
+<script>
+  var map;
+  var center = {lat: 37.42, lng: -122.16};
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+    center: center,
+    zoom: 9
+    });
+  }
+
+  function placeTable(rows) {
+    var tbl_body = document.createElement("tbody");
+    $.each(rows, function() {
+        var tbl_row = tbl_body.insertRow();
+        cell = tbl_row.insertCell();
+        cell.appendChild(document.createTextNode(this["city"]));
+        cell = tbl_row.insertCell();
+        cell.appendChild(document.createTextNode(this["state"]));
+        cell = tbl_row.insertCell();
+        cell.appendChild(document.createTextNode(this["zipcode"]));
+        cell = tbl_row.insertCell();
+        cell.appendChild(document.createTextNode(this["category"]));
+        cell = tbl_row.insertCell();
+        cell.appendChild(document.createTextNode(this["sentiment"]));
+        cell = tbl_row.insertCell();
+        cell.appendChild(document.createTextNode(this["affordability"]));
+        cell = tbl_row.insertCell();
+        cell.appendChild(document.createTextNode(this["accessibility"]));
+        cell = tbl_row.insertCell();
+        cell.appendChild(document.createTextNode(this["highest_pop"]));
+    })
+    console.log(rows);
+    return tbl_body;
+  }
+
+  function placeMarkers(stores) {
+    var bounds = new google.maps.LatLngBounds();
+    var infowindow = new google.maps.InfoWindow();
+    for (i=0; i < stores.length; i++) {
+      store = stores[i];
+      var location = {lat: store["latitude"], lng: store["longitude"]}
+      var marker = new google.maps.Marker({position: location, map: map});
+      bounds.extend(marker.position);
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+            infowindow.setContent("<b>" + stores[i]["name"] + ", " + stores[i]["stars"] + "⭐</b>");
+            infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+    map.fitBounds(bounds);
+  }
+
+  $(function() {
+    $('button[id="search"]').bind('click', function() {
+      $.getJSON($SCRIPT_ROOT + '/getLocations', {
+        zipcode: $('input[id="zipcode"]').val(),
+        category: $('input[id="category"]').val()
+      }, function(data) {
+        placeMarkers(data["map_results"]);
+        var tbl_body = placeTable(data["table_results"]);
+        var old_tbl_body = document.getElementById('table_content');
+        if (old_tbl_body) { 
+          var parent_node = old_tbl_body.parentNode;
+          parent_node.removeChild(old_tbl_body);
+        }
+        tbl_body.setAttribute("id", "table_content");
+        document.getElementById("result_table").appendChild(tbl_body);
+      });
+      return false;
+    });
+  });
+
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key={key}&callback=initMap"></script>
+{% endblock %}
