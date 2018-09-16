@@ -4,8 +4,8 @@
 Shopping for the business location is usually the first challenge when SMB owners start their own business. There is huge need for them to quickly target an ideal location that can potentially grow their business without spending money on the consulting service for location strategy. This tool aims to build up an intelligent tool to help SMB owners make data-driven site location decisions
 
 ## Demo
-[Demo Video](https://www.youtube.com/watch?v=9LDvZoIvAGE)
-[Demo Slides](http://bit.ly/LocationIQ-slides)
+###[Demo Video](https://www.youtube.com/watch?v=9LDvZoIvAGE)
+###[Demo Slides](http://bit.ly/LocationIQ-slides)
 
 ## Data Source
 ### Yelp Open Source Dataset
