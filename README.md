@@ -22,8 +22,8 @@ This dataset includes information on reviews, users, businesses, checkin, photos
 2. Implement both batch and streaming processing in the pipeline, where structured streaming with dataframe structure is still an experimental API in Spark.
 
 ## Cluster Configurations
-Spark cluster: 4 m4.large instance 8G memory, 100G disk Ubuntu 16
-Kafka cluster: 3 m4.large instance 8G memory, 100G disk Ubuntu 16
-Spark Streaming cluster: 4 m4.large instance 8G memory, 100G disk Ubuntu 16
-PostgreSQL cluster: 1 m4.large instance 8G memory, 100G disk Ubuntu 16
+1. Spark cluster: 4 m4.large instance 8G memory, 100G disk Ubuntu 16
+2. Kafka cluster: 3 m4.large instance 8G memory, 100G disk Ubuntu 16
+3. Spark Streaming cluster: 4 m4.large instance 8G memory, 100G disk Ubuntu 16
+4. PostgreSQL cluster: 1 m4.large instance 8G memory, 100G disk Ubuntu 16
 
