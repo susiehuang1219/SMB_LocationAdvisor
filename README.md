@@ -1,9 +1,11 @@
-# SMB LocationIQ - A Real-time Intelligent Tool for SMB Location Strategy
+# SMB LocationIQ - A scalable machine learning pipeline for SMB Location Strategy
 
 ## Business Use Case
-Shopping for the business location is usually the first challenge when SMB owners start their own business. There is huge need for them to quickly target an ideal location that can potentially grow their business without spending money on the consulting service for location strategy.
-This tool aims to build up an intelligent tool to help SMB owners make data-driven site location decisions
+Shopping for the business location is usually the first challenge when SMB owners start their own business. There is huge need for them to quickly target an ideal location that can potentially grow their business without spending money on the consulting service for location strategy. This tool aims to build up an intelligent tool to help SMB owners make data-driven site location decisions
 
+## Demo
+[Demo Video](https://www.youtube.com/watch?v=9LDvZoIvAGE)
+[Demo Slides](http://bit.ly/LocationIQ-slides)
 
 ## Data Source
 ### Yelp Open Source Dataset
@@ -14,7 +16,12 @@ This dataset includes information on reviews, users, businesses, checkin, photos
 
 
 ## DE Challenges
+1. Normalize different dimensions from the data input and compute an aggregated score in the aspects of Accessibility, Availability and Sentiment.
+2. Implement both batch and streaming processing in the pipeline, where structured streaming with dataframe structure is still an experimental API in Spark.
 
-### Real-time streaming on:
-1. NLP analysis, analyze the sentiment score of a user's comments on business, using Stanford CoreNLP wrapper for Apache Spark
-2. Normalize different dimensions from the data input and to compute an aggregated score in the aspects of Accessibility, Business Rate and Competition
+## Cluster Configurations
+Spark cluster: 4 m4.large instance 8G memory, 100G disk Ubuntu 16
+Kafka cluster: 3 m4.large instance 8G memory, 100G disk Ubuntu 16
+Spark Streaming cluster: 4 m4.large instance 8G memory, 100G disk Ubuntu 16
+PostgreSQL cluster: 1 m4.large instance 8G memory, 100G disk Ubuntu 16
+
