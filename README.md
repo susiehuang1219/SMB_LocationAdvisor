@@ -11,7 +11,7 @@ Shopping for the business location is usually the first challenge when SMB owner
 
 ## Data Source
 ### Yelp Open Source Dataset
-This dataset includes information on reviews, users, businesses, checkin, photos and tips (5.79 GB uncompressed in json format, 6 json files including business.json, check-in.json, photos.json, review.json, tip.json and user.json)
+This dataset includes information on reviews, users, businesses, checkin, photos and tips (6 json files including business.json, check-in.json, photos.json, review.json, tip.json and user.json)
 ### Income Dataset and Zip code Dataset 
 1. American FactFinder under United States Census Bureau 
 2. Gaslamp Media
